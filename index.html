@@ -183,7 +183,7 @@ const WORKOUTS = {
     {name:"Seated Cable Row",scheme:"2–3 × 10–12",tag:"Acc"},
     {name:"Back Extension",scheme:"2–3 × 12–15",tag:"Core"},
   ]},
-  S:{num:"03",name:"Shoulders",focus:"Overhead press · Rear delts · Arms",ex:[
+  S:{num:"03",name:"Shoulders, Arms & Core",short:"Shoulders",focus:"Delts · Arms · Core",ex:[
     {name:"Overhead Press — DB or barbell",scheme:"3 × 8–12",tag:"Main"},
     {name:"Face Pull",scheme:"2–3 × 12–15",tag:"Acc"},
     {name:"Lateral Raise",scheme:"2–3 × 12–15",tag:"Acc"},
@@ -220,7 +220,7 @@ function buildControls(){
     `<button data-day="${i}" aria-pressed="${i===today}">${d}</button>`).join("");
   const sSeg = document.getElementById("sesSeg");
   sSeg.innerHTML = ROT.map(k=>
-    `<button data-ses="${k}" aria-pressed="${k===session}">${WORKOUTS[k].name}</button>`).join("");
+    `<button data-ses="${k}" aria-pressed="${k===session}">${WORKOUTS[k].short||WORKOUTS[k].name}</button>`).join("");
 
   dSeg.querySelectorAll("button").forEach(b=>b.onclick=()=>{
     today = +b.dataset.day; viewing = today; render();
@@ -244,7 +244,7 @@ function render(){
     const badge = isToday
       ? `<span class="today-pill">Today</span>`
       : (WORKOUTS[code] ? `<span class="wk-num">Day ${WORKOUTS[code].num}</span>` : "");
-    const label = code==="rest"?"Rest":WORKOUTS[code].name;
+    const label = code==="rest"?"Rest":(WORKOUTS[code].short||WORKOUTS[code].name);
     const foc = code==="rest"?"Recovery":WORKOUTS[code].focus;
     return `<button class="${cls}" data-view="${i}">
       <span class="dow">${DOW[i]}</span>${badge}
