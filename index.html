@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strength Foundations · 3-Day Split</title>
+<meta name="description" content="A beginner 3-day strength split built around compound lifts — squat, deadlift, overhead press. Anterior / Posterior / Shoulders.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --base:#F1F1EA;
+    --card:#FFFFFF;
+    --ink:#17160F;
+    --ink-soft:#5F5E54;
+    --line:#DEDDD2;
+    --volt:#C9E94B;
+    --volt-deep:#9CBB1E;
+    --signal:#E8402A;
+    --shadow:0 1px 0 rgba(23,22,15,.04), 0 12px 30px -18px rgba(23,22,15,.25);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    background:var(--base);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+
+  /* ---------- HERO ---------- */
+  header.hero{padding:64px 0 40px}
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:12px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--ink-soft);display:flex;align-items:center;gap:12px;
+  }
+  .eyebrow::after{content:"";height:1px;flex:1;background:var(--line)}
+  h1.title{
+    font-family:'Oswald',sans-serif;font-weight:700;
+    font-size:clamp(52px,13vw,104px);line-height:.92;
+    letter-spacing:-.01em;text-transform:uppercase;
+    margin:18px 0 0;
+  }
+  h1.title .mark{
+    background:var(--volt);
+    box-shadow:0 0 0 6px var(--volt);
+    padding:0 2px;
+  }
+  .lede{
+    margin-top:26px;max-width:52ch;font-size:17px;color:var(--ink-soft);
+  }
+  .lede b{color:var(--ink);font-weight:600}
+  .meta{
+    display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;
+  }
+  .chip{
+    font-family:'Space Mono',monospace;font-size:12.5px;font-weight:700;
+    letter-spacing:.04em;text-transform:uppercase;
+    background:var(--card);border:1px solid var(--line);
+    padding:9px 13px;border-radius:2px;
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:22px 0}
+  .sec-label{
+    font-family:'Space Mono',monospace;font-size:12px;
+    letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);
+    margin-bottom:16px;
+  }
+
+  /* ---------- THE RULE (signature: rep ladder) ---------- */
+  .rule{
+    background:var(--ink);color:var(--base);border-radius:6px;
+    padding:30px 26px 26px;box-shadow:var(--shadow);
+  }
+  .rule h2{
+    font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;
+    font-size:26px;letter-spacing:.01em;line-height:1;
+  }
+  .rule p.sub{color:#B9B8AC;margin-top:8px;font-size:14.5px;max-width:46ch}
+  .ladder{
+    display:grid;grid-template-columns:1fr 1.5fr 1fr;
+    margin-top:26px;border:1px solid #35342B;border-radius:4px;overflow:hidden;
+  }
+  .rung{padding:16px 14px;border-right:1px solid #35342B}
+  .rung:last-child{border-right:0}
+  .rung .n{
+    font-family:'Oswald',sans-serif;font-weight:700;font-size:34px;line-height:1;
+  }
+  .rung .z{
+    font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;margin-top:9px;color:#B9B8AC;
+  }
+  .rung .act{font-size:13.5px;margin-top:5px;color:var(--base)}
+  .rung.low .n{color:var(--signal)}
+  .rung.zone{background:#1F1E16}
+  .rung.zone .n{color:var(--base)}
+  .rung.zone .z{color:var(--volt)}
+  .rung.high .n{color:var(--volt)}
+  .rule .fine{
+    font-family:'Space Mono',monospace;font-size:12px;color:#B9B8AC;
+    margin-top:20px;line-height:1.7;
+  }
+  .rule .fine b{color:var(--volt)}
+
+  /* ---------- DAY BLOCKS ---------- */
+  .day{
+    background:var(--card);border:1px solid var(--line);border-radius:6px;
+    padding:26px 24px;margin-top:14px;box-shadow:var(--shadow);
+  }
+  .day-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .day-num{
+    font-family:'Oswald',sans-serif;font-weight:700;font-size:40px;line-height:1;
+    color:var(--volt-deep);
+  }
+  .day-name{
+    font-family:'Oswald',sans-serif;font-weight:600;font-size:29px;
+    text-transform:uppercase;line-height:1;letter-spacing:.01em;
+  }
+  .day-focus{
+    font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-soft);
+    width:100%;margin-top:4px;
+  }
+  .rows{margin-top:20px}
+  .row{
+    display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:center;
+    padding:13px 0;border-top:1px solid var(--line);
+  }
+  .row:first-child{border-top:0}
+  .ex{font-weight:600;font-size:16px}
+  .ex .tag{
+    display:inline-block;font-family:'Space Mono',monospace;font-weight:700;
+    font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+    padding:2px 7px;border-radius:2px;margin-left:9px;vertical-align:2px;
+    border:1px solid var(--line);color:var(--ink-soft);
+  }
+  .row.main{padding-left:14px;border-left:4px solid var(--volt);margin-left:-14px}
+  .row.main .ex{font-size:17px}
+  .row.main .tag{background:var(--volt);border-color:var(--volt);color:var(--ink)}
+  .note{grid-column:1/-1;font-size:13px;color:var(--ink-soft);margin-top:-2px}
+  .scheme{
+    font-family:'Space Mono',monospace;font-weight:700;font-size:14.5px;
+    white-space:nowrap;
+  }
+
+  /* ---------- COACH NOTES ---------- */
+  .notes{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:26px 24px;box-shadow:var(--shadow)}
+  .notes ol{list-style:none;counter-reset:c}
+  .notes li{
+    counter-increment:c;padding:16px 0 16px 46px;position:relative;
+    border-top:1px solid var(--line);font-size:15px;
+  }
+  .notes li:first-child{border-top:0}
+  .notes li::before{
+    content:counter(c,decimal-leading-zero);
+    position:absolute;left:0;top:16px;
+    font-family:'Space Mono',monospace;font-weight:700;font-size:13px;
+    color:var(--volt-deep);
+  }
+  .notes li b{font-weight:600}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:44px 0 60px;color:var(--ink-soft);font-size:13px}
+  footer .line{height:1px;background:var(--line);margin-bottom:22px}
+  footer .fmono{font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.06em}
+
+  /* ---------- MOTION ---------- */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  :focus-visible{outline:3px solid var(--volt-deep);outline-offset:3px}
+
+  @media (max-width:520px){
+    .ladder{grid-template-columns:1fr}
+    .rung{border-right:0;border-bottom:1px solid #35342B}
+    .rung:last-child{border-bottom:0}
+    .row{grid-template-columns:1fr}
+    .scheme{justify-self:start}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero wrap">
+  <div class="eyebrow reveal">Strength Foundations · Beginner</div>
+  <h1 class="title reveal">Build the<br><span class="mark">basics</span></h1>
+  <p class="lede reveal">A three-day split for a new lifter in her 20s — built to make the <b>compound lifts</b> second nature. Squat, deadlift, and press lead every session; everything else supports them.</p>
+  <div class="meta reveal">
+    <span class="chip">60–90 min</span>
+    <span class="chip">3× / week</span>
+    <span class="chip">2 working sets</span>
+    <span class="chip">Train to 8–12</span>
+  </div>
+</header>
+
+<main>
+<section class="wrap reveal">
+  <div class="rule">
+    <h2>The one rule</h2>
+    <p class="sub">Double progression. Chase failure in the 8–12 zone, then let the reps tell you when to change the weight.</p>
+    <div class="ladder">
+      <div class="rung low">
+        <div class="n">≤6</div>
+        <div class="z">Too heavy</div>
+        <div class="act">Lighten the weight</div>
+      </div>
+      <div class="rung zone">
+        <div class="n">8–12</div>
+        <div class="z">Failure zone</div>
+        <div class="act">Stay here — earn every rep</div>
+      </div>
+      <div class="rung high">
+        <div class="n">15+</div>
+        <div class="z">Too light</div>
+        <div class="act">Add weight next time</div>
+      </div>
+    </div>
+    <p class="fine">Every exercise = <b>1 warm-up set + 2 sets to failure.</b><br>Ride a weight up toward 15 reps, then bump it and start the climb again.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="sec-label reveal">The Split</div>
+
+  <div class="day reveal">
+    <div class="day-head">
+      <span class="day-num">01</span>
+      <span class="day-name">Anterior</span>
+      <span class="day-focus">Front side — quads · chest · front delts</span>
+    </div>
+    <div class="rows">
+      <div class="row main"><span class="ex">Goblet or Back Squat<span class="tag">Main lift</span></span><span class="scheme">3 × 8–12</span><span class="note">Your priority movement. Master the pattern before chasing load.</span></div>
+      <div class="row"><span class="ex">Dumbbell Bench Press</span><span class="scheme">3 × 8–12</span></div>
+      <div class="row"><span class="ex">Leg Press</span><span class="scheme">3 × 8–12</span></div>
+      <div class="row"><span class="ex">Leg Extension<span class="tag">Accessory</span></span><span class="scheme">2–3 × 8–12</span></div>
+      <div class="row"><span class="ex">Cable Fly / Incline DB Press<span class="tag">Accessory</span></span><span class="scheme">2–3 × 8–12</span></div>
+      <div class="row"><span class="ex">Plank<span class="tag">Core</span></span><span class="scheme">2–3 × 30–45s</span></div>
+    </div>
+  </div>
+
+  <div class="day reveal">
+    <div class="day-head">
+      <span class="day-num">02</span>
+      <span class="day-name">Posterior</span>
+      <span class="day-focus">Back side — hamstrings · glutes · back</span>
+    </div>
+    <div class="rows">
+      <div class="row main"><span class="ex">Deadlift — conventional or Romanian<span class="tag">Main lift</span></span><span class="scheme">3 × 6–10</span><span class="note">Keep reps a touch lower here and leave 1–2 in the tank.</span></div>
+      <div class="row"><span class="ex">Lat Pulldown / Assisted Pull-up</span><span class="scheme">3 × 8–12</span></div>
+      <div class="row"><span class="ex">Hip Thrust</span><span class="scheme">3 × 8–12</span></div>
+      <div class="row"><span class="ex">Seated Hamstring Curl<span class="tag">Accessory</span></span><span class="scheme">2–3 × 8–12</span></div>
+      <div class="row"><span class="ex">Seated Cable Row / Face Pull<span class="tag">Accessory</span></span><span class="scheme">2–3 × 10–15</span></div>
+      <div class="row"><span class="ex">Back Extension<span class="tag">Core</span></span><span class="scheme">2–3 × 12–15</span></div>
+    </div>
+  </div>
+
+  <div class="day reveal">
+    <div class="day-head">
+      <span class="day-num">03</span>
+      <span class="day-name">Shoulders</span>
+      <span class="day-focus">Overhead press · arms · core finish</span>
+    </div>
+    <div class="rows">
+      <div class="row main"><span class="ex">Overhead Press — DB or barbell<span class="tag">Main lift</span></span><span class="scheme">3 × 8–12</span><span class="note">Brace the core hard; stop 1–2 reps short of true failure.</span></div>
+      <div class="row"><span class="ex">Lat Pulldown / Assisted Pull-up</span><span class="scheme">3 × 8–12</span></div>
+      <div class="row"><span class="ex">Lateral Raise<span class="tag">Accessory</span></span><span class="scheme">2–3 × 12–15</span></div>
+      <div class="row"><span class="ex">Bicep Curl + Tricep Pushdown — superset<span class="tag">Accessory</span></span><span class="scheme">2–3 × 10–12</span></div>
+      <div class="row"><span class="ex">Hanging Knee Raise<span class="tag">Core</span></span><span class="scheme">2–3 × 10–15</span></div>
+      <div class="row"><span class="ex">Cable Woodchop / Russian Twist<span class="tag">Core</span></span><span class="scheme">2–3 × 12/side</span></div>
+      <div class="row"><span class="ex">Plank<span class="tag">Core</span></span><span class="scheme">2–3 × 30–45s</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap reveal">
+  <div class="sec-label">Coach Notes</div>
+  <div class="notes">
+    <ol>
+      <li><b>Don't take the barbell lifts to true failure.</b> On squat, deadlift, and overhead press, stop 1–2 reps short — form breaks before the muscle does, and that's where injuries happen. Save all-out failure for machines and accessories.</li>
+      <li><b>Ramp up before the big lifts.</b> Before your first working set on squats and deadlifts, do 2–3 light ascending sets to groove the movement. These don't count toward your two working sets.</li>
+      <li><b>Rest with intent.</b> ~2–3 min on compounds, ~60–90s on accessories and core. That's what keeps a session inside the 60–90 minute window.</li>
+      <li><b>Run it Mon / Wed / Fri</b> with a rest day between. Once recovery feels easy, repeat a day to train 4×/week — but 3×/week is plenty to build real strength as a beginner.</li>
+      <li><b>Film the compounds</b> from the side now and then. Form feedback is the highest-leverage thing a new lifter can do.</li>
+    </ol>
+  </div>
+</section>
+</main>
+
+<footer class="wrap reveal">
+  <div class="line"></div>
+  <div class="fmono">STRENGTH FOUNDATIONS — 3-DAY SPLIT</div>
+  <p style="margin-top:8px">General fitness guidance, not medical advice. Check with a professional before starting a new program, and stop any movement that causes pain.</p>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{
+    el.style.transitionDelay=(Math.min(i,6)*45)+'ms';
+    io.observe(el);
+  });
+</script>
+</body>
+</html>
